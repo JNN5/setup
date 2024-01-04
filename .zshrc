@@ -71,10 +71,6 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  yarn 
-  web-search 
-  jsontools
   macports
   node 
   macos 
@@ -159,6 +155,7 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 # fi
 
 # alias assume-profile="source \$(pyenv which awsume)"
+alias awsume=". awsume"
 alias tf-validate="python /Users/jonas.a.neumann/Documents/repos/diva-be-boilerplate/terraform/tf-validate.py"
 
 # pnpm
@@ -175,3 +172,15 @@ export NVM_DIR="$HOME/.nvm"
 alias flutter-init='export PATH="$PATH:`pwd`/flutter/bin"'
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+alias docker="finch"
+alias docker-compose="finch compose"
+alias init-venv="python3 -m venv env && source env/bin/activate"
+alias activate-venv="source env/bin/activate"
+alias venv-init="init-venv"
+alias venv-activate="init-venv"
