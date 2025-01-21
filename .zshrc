@@ -1,14 +1,26 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Path to your oh-my-zsh installation.
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,14 +82,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  macports
-  node 
-  macos 
-  sudo
-  thor
-  docker
-)
+plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -97,66 +103,17 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python="python3"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Reload the plugin to highlight the commands each time Iterm2 starts 
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-### VISUAL CUSTOMISATION ### 
-
-# Elements options of left prompt (remove the @username context)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
-# Elements options of right prompt
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
-
-
-
-# Add a second prompt line for the command
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-# Add a space in the first prompt 
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
-
-# Visual customisation of the second prompt line
-local user_symbol="$"
-if [[ $(print -P "%#") =~ "#" ]]; then
-    user_symbol = "#"
-fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
-
-
-# Change the git status to red when something isn't committed and pushed
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
-
-# Add a new line after the global prompt 
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-
-# Colorise the top Tabs of Iterm2 with the same color as background
-# Just change the 18/26/33 wich are the rgb values 
-echo -e "\033]6;1;bg;red;brightness;18\a"
-echo -e "\033]6;1;bg;green;brightness;26\a"
-echo -e "\033]6;1;bg;blue;brightness;33\a"
-
-# Pyenv
-# if command -v pyenv 1>/dev/null 2>&1; then
-#  eval "$(pyenv init -)"
-# fi
-
-# alias assume-profile="source \$(pyenv which awsume)"
-alias awsume=". awsume"
-alias tf-validate="python /Users/jonas.a.neumann/Documents/repos/diva-be-boilerplate/terraform/tf-validate.py"
 
 # pnpm
 # export PNPM_HOME="/Users/jonas.a.neumann/Library/pnpm"
@@ -164,13 +121,13 @@ alias tf-validate="python /Users/jonas.a.neumann/Documents/repos/diva-be-boilerp
 # pnpm end
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Flutter
 # export PATH="$PATH:`pwd`/flutter/bin"
 alias flutter-init='export PATH="$PATH:`pwd`/flutter/bin"'
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 timezsh() {
@@ -178,9 +135,33 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-alias docker="finch"
-alias docker-compose="finch compose"
-alias init-venv="python3 -m venv env && source env/bin/activate"
-alias activate-venv="source env/bin/activate"
+alias awsume=". ~/.pyenv/versions/3.12.4/bin/awsume"
+alias tf-validate="python /Users/jonas.a.neumann/tf-validate.py"
+alias python="python3"
+# alias pip="pip3"
+alias init-venv="python3 -m venv .venv && source .venv/bin/activate"
+alias activate-venv="source .venv/bin/activate"
 alias venv-init="init-venv"
 alias venv-activate="init-venv"
+alias init-yarn="corepack enable;yarn init -2"
+alias yarn-init="init-yarn"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# react-native
+export ANDROID_HOME=/Users/jonas.a.neumann/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+eval "$(gh copilot alias -- zsh)"

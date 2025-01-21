@@ -1,0 +1,14 @@
+[user]
+	name = Jonas Neumann
+	email = jonas.a.neumann@accenture.com
+[credential "https://git-codecommit.ap-southeast-1.amazonaws.com"]
+	provider = generic
+[http]
+	postBuffer = 524288000
+[credential "https://github.com"]
+	useHttpPath = true
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
