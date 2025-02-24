@@ -135,7 +135,6 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-alias awsume=". ~/.pyenv/versions/3.12.4/bin/awsume"
 alias tf-validate="python /Users/jonas.a.neumann/tf-validate.py"
 alias python="python3"
 # alias pip="pip3"

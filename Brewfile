@@ -124,6 +124,8 @@ brew "remotemobprogramming/brew/mob"
 brew "sdkman/tap/sdkman-cli"
 # Open-source AI-native IDE
 cask "aide-app"
+# Communications service
+cask "amazon-chime"
 # Photo storage and sharing service
 cask "amazon-photos"
 # AI-powered productivity tool for the command-line
@@ -132,6 +134,8 @@ cask "amazon-q"
 cask "box-tools"
 # Write, edit, and chat about your code with AI
 cask "cursor"
+# Voice and text chat software
+cask "discord"
 # Online diagram software
 cask "drawio"
 # Collaborative team software
@@ -160,8 +164,6 @@ cask "postman"
 cask "raycast"
 # Team communication and collaboration software
 cask "slack"
-# Music streaming service
-cask "spotify"
 # Open-source code editor
 cask "visual-studio-code"
 # Rust-based terminal
@@ -170,6 +172,8 @@ cask "warp"
 cask "wave"
 # Native desktop client for WhatsApp
 cask "whatsapp"
+# Gecko based web browser
+cask "zen-browser"
 # Video communication and virtual meeting platform
 cask "zoom"
 vscode "amazonwebservices.amazon-q-vscode"
@@ -225,6 +229,7 @@ vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.test-adapter-converter"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "msjsdiag.vscode-react-native"
+vscode "narasimapandiyan.jetbrainsmono"
 vscode "nrwl.angular-console"
 vscode "orsenkucher.vscode-graphql"
 vscode "orta.vscode-jest"
@@ -236,6 +241,7 @@ vscode "plethoraofhate.aws-actions"
 vscode "postman.postman-for-vscode"
 vscode "quicktype.quicktype"
 vscode "rangav.vscode-thunder-client"
+vscode "redhat.vscode-yaml"
 vscode "ritwickdey.liveserver"
 vscode "rooveterinaryinc.roo-cline"
 vscode "rust-lang.rust-analyzer"
